@@ -1,68 +1,94 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><a href="#" target="_blank" rel="noopener noreferrer"><img width="100" src="READMEimage/squirrelAppIcon.png" alt="Kerthin logo"></a></p>
 
-## Available Scripts
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg" alt="Build Status"></a>
+  <a href="#"><img src="https://img.shields.io/badge/npm-v6.14.4-blue.svg" alt="Version"></a>
+  <a href="#"><img src="https://img.shields.io/badge/node-v10.16.0-blue.svg" alt="Version"></a> <br>
+  <a href="#"><img src="https://img.shields.io/badge/repo%20size-742.5%20MB-green.svg" alt="Size"></a>
+  <a href="#"><img src="https://img.shields.io/badge/project%20version-v0.8-blue.svg" alt="Version"></a>
+</p>
 
-In the project directory, you can run:
+<h2 align="center">Description</h2>
 
-### `npm start`
+The template is a site for viewing the works of great artists represented in the famous Prado Museum. You can also find out information about the painting and the artist himself.
+- To launch the app:
+  - download the repository;
+  - log in to the downloaded repository using the command line or terminal;
+  - enter the command line 'npm run start' or 'serve-s build' and go to the address specified in the terminal.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Note that the project was made using the CREATE REACT APP.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### Use technology.
 
-### `npm test`
+The following technologies were used to create this project:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3 align="center">Software platform</h3>
+<!--Software platform start-->
 
-### `npm run build`
+<p align="center">
+  <a href="#">
+    <img width="260px" src="READMEimage/technology/nodejs-1.svg">
+  </a>
+</p>
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3 align="center">Libraries</h3>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+<!--Libraries-->
+<p align="center">
+  <a href="#">
+    <img width="260px" src="READMEimage/technology/react.svg">
+  </a>
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h3 align="center">Package manager</h4>
 
-### `npm run eject`
+<!--Package manager-->
+<p align="center">
+  <a href="#">
+    <img width="144px" src="READMEimage/technology/npm.svg">
+  </a>
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Documentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### The repository of this project is divided into several sections:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `src` - this repository is intended for files with the help of which the project is being developed. It is from this repository that all project files are compiled;
+- `docs` - a repository that stores all compiled code with all media files;
 
-## Learn More
+#### The following describes in more detail the repository `src`:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `src` - this repository is divided into several folders and files:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - `fonts` - folder is used to store fonts;
+  - `image` - all images for the site are stored in the folder.
 
-### Code Splitting
+- `public` - media files distributed by subgroups are stored inside this repository.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+#### This section describes how to work with `Create React App` used in the project:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- `npm run start` - this command starts the project from the local 'src' repository where you work on the entire product;
+- `serve -s build` - this command starts the project from the local 'build' repository where the finished and assembled project is located for release in production.
 
-### Making a Progressive Web App
+## Appearance
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+The image of the website:
 
-### Advanced Configuration
+- Gif
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+#### Gif
 
-### Deployment
+  - Image Choise <br>
+  <a href="#"><img src="READMEimage/gif/imageChoose.gif" /></a>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+  - Synopsis <br>
+  <a href="#"><img src="READMEimage/gif/synopsis.gif" /></a>
 
-### `npm run build` fails to minify
+  - Horizontal Scroll <br>
+  <a href="#"><img src="READMEimage/gif/imageChoose.gif" /></a>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  - Vertical Scroll <br>
+  <a href="#"><img src="READMEimage/gif/verticalScroll.gif" /></a>
