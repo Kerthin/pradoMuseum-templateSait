@@ -1,0 +1,2726 @@
+.swiper-container {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  /* Fix of Webkit flickering */
+  z-index: 1;
+}
+.swiper-container-no-flexbox .swiper-slide {
+  float: left;
+}
+.swiper-container-vertical > .swiper-wrapper {
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.swiper-container-android .swiper-slide,
+.swiper-wrapper {
+  -webkit-transform: translate3d(0px, 0, 0);
+  -moz-transform: translate3d(0px, 0, 0);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate3d(0px, 0, 0);
+  transform: translate3d(0px, 0, 0);
+}
+.swiper-container-multirow > .swiper-wrapper {
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.swiper-container-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  margin: 0 auto;
+}
+.swiper-slide {
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* Auto Height */
+.swiper-container-autoheight,
+.swiper-container-autoheight .swiper-slide {
+  height: auto;
+}
+.swiper-container-autoheight .swiper-wrapper {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-transition-property: -webkit-transform, height;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform, height;
+}
+/* a11y */
+.swiper-container .swiper-notification {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1000;
+}
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+  -ms-touch-action: pan-x;
+  touch-action: pan-x;
+}
+/* Arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: 27px;
+  height: 44px;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+  -moz-background-size: 27px 44px;
+  -webkit-background-size: 27px 44px;
+  background-size: 27px 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: auto;
+  pointer-events: none;
+}
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
+  left: 10px;
+  right: auto;
+}
+.swiper-button-prev.swiper-button-black,
+.swiper-container-rtl .swiper-button-next.swiper-button-black {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+.swiper-button-prev.swiper-button-white,
+.swiper-container-rtl .swiper-button-next.swiper-button-white {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+}
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
+  right: 10px;
+  left: auto;
+}
+.swiper-button-next.swiper-button-black,
+.swiper-container-rtl .swiper-button-prev.swiper-button-black {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+.swiper-button-next.swiper-button-white,
+.swiper-container-rtl .swiper-button-prev.swiper-button-white {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+}
+/* Pagination Styles */
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+.swiper-pagination.swiper-pagination-hidden {
+  opacity: 0;
+}
+/* Common Styles */
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+/* Bullets */
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 100%;
+  background: #000;
+  opacity: 0.2;
+}
+button.swiper-pagination-bullet {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  cursor: pointer;
+}
+.swiper-pagination-white .swiper-pagination-bullet {
+  background: #fff;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007aff;
+}
+.swiper-pagination-white .swiper-pagination-bullet-active {
+  background: #fff;
+}
+.swiper-pagination-black .swiper-pagination-bullet-active {
+  background: #000;
+}
+.swiper-container-vertical > .swiper-pagination-bullets {
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translate3d(0px, -50%, 0);
+  -moz-transform: translate3d(0px, -50%, 0);
+  -o-transform: translate(0px, -50%);
+  -ms-transform: translate3d(0px, -50%, 0);
+  transform: translate3d(0px, -50%, 0);
+}
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 5px 0;
+  display: block;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 5px;
+}
+/* Progress */
+.swiper-pagination-progress {
+  background: rgba(0, 0, 0, 0.25);
+  position: absolute;
+}
+.swiper-pagination-progress .swiper-pagination-progressbar {
+  background: #007aff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+}
+.swiper-container-rtl .swiper-pagination-progress .swiper-pagination-progressbar {
+  -webkit-transform-origin: right top;
+  -moz-transform-origin: right top;
+  -ms-transform-origin: right top;
+  -o-transform-origin: right top;
+  transform-origin: right top;
+}
+.swiper-container-horizontal > .swiper-pagination-progress {
+  width: 100%;
+  height: 4px;
+  left: 0;
+  top: 0;
+}
+.swiper-container-vertical > .swiper-pagination-progress {
+  width: 4px;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.swiper-pagination-progress.swiper-pagination-white {
+  background: rgba(255, 255, 255, 0.5);
+}
+.swiper-pagination-progress.swiper-pagination-white .swiper-pagination-progressbar {
+  background: #fff;
+}
+.swiper-pagination-progress.swiper-pagination-black .swiper-pagination-progressbar {
+  background: #000;
+}
+/* 3D Container */
+.swiper-container-3d {
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+}
+.swiper-container-3d .swiper-wrapper,
+.swiper-container-3d .swiper-slide,
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right,
+.swiper-container-3d .swiper-slide-shadow-top,
+.swiper-container-3d .swiper-slide-shadow-bottom,
+.swiper-container-3d .swiper-cube-shadow {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right,
+.swiper-container-3d .swiper-slide-shadow-top,
+.swiper-container-3d .swiper-slide-shadow-bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+.swiper-container-3d .swiper-slide-shadow-left {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  /* Safari 4+, Chrome */
+  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Chrome 10+, Safari 5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 3.6-15 */
+  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Opera 11.10-12.00 */
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 16+, IE10, Opera 12.50+ */
+}
+.swiper-container-3d .swiper-slide-shadow-right {
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  /* Safari 4+, Chrome */
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Chrome 10+, Safari 5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 3.6-15 */
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Opera 11.10-12.00 */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 16+, IE10, Opera 12.50+ */
+}
+.swiper-container-3d .swiper-slide-shadow-top {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  /* Safari 4+, Chrome */
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Chrome 10+, Safari 5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 3.6-15 */
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Opera 11.10-12.00 */
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 16+, IE10, Opera 12.50+ */
+}
+.swiper-container-3d .swiper-slide-shadow-bottom {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  /* Safari 4+, Chrome */
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Chrome 10+, Safari 5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 3.6-15 */
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Opera 11.10-12.00 */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  /* Firefox 16+, IE10, Opera 12.50+ */
+}
+/* Coverflow */
+.swiper-container-coverflow .swiper-wrapper,
+.swiper-container-flip .swiper-wrapper {
+  /* Windows 8 IE 10 fix */
+  -ms-perspective: 1200px;
+}
+/* Cube + Flip */
+.swiper-container-cube,
+.swiper-container-flip {
+  overflow: visible;
+}
+.swiper-container-cube .swiper-slide,
+.swiper-container-flip .swiper-slide {
+  pointer-events: none;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+.swiper-container-cube .swiper-slide .swiper-slide,
+.swiper-container-flip .swiper-slide .swiper-slide {
+  pointer-events: none;
+}
+.swiper-container-cube .swiper-slide-active,
+.swiper-container-flip .swiper-slide-active,
+.swiper-container-cube .swiper-slide-active .swiper-slide-active,
+.swiper-container-flip .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+.swiper-container-cube .swiper-slide-shadow-top,
+.swiper-container-flip .swiper-slide-shadow-top,
+.swiper-container-cube .swiper-slide-shadow-bottom,
+.swiper-container-flip .swiper-slide-shadow-bottom,
+.swiper-container-cube .swiper-slide-shadow-left,
+.swiper-container-flip .swiper-slide-shadow-left,
+.swiper-container-cube .swiper-slide-shadow-right,
+.swiper-container-flip .swiper-slide-shadow-right {
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* Cube */
+.swiper-container-cube .swiper-slide {
+  visibility: hidden;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  width: 100%;
+  height: 100%;
+}
+.swiper-container-cube.swiper-container-rtl .swiper-slide {
+  -webkit-transform-origin: 100% 0;
+  -moz-transform-origin: 100% 0;
+  -ms-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+.swiper-container-cube .swiper-slide-active,
+.swiper-container-cube .swiper-slide-next,
+.swiper-container-cube .swiper-slide-prev,
+.swiper-container-cube .swiper-slide-next + .swiper-slide {
+  pointer-events: auto;
+  visibility: visible;
+}
+.swiper-container-cube .swiper-cube-shadow {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  -webkit-filter: blur(50px);
+  filter: blur(50px);
+  z-index: 0;
+}
+/* Fade */
+.swiper-container-fade.swiper-container-free-mode .swiper-slide {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.swiper-container-fade .swiper-slide {
+  pointer-events: none;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.swiper-container-fade .swiper-slide .swiper-slide {
+  pointer-events: none;
+}
+.swiper-container-fade .swiper-slide-active,
+.swiper-container-fade .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+.swiper-zoom-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+}
+.swiper-zoom-container > img,
+.swiper-zoom-container > svg,
+.swiper-zoom-container > canvas {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+/* Scrollbar */
+.swiper-scrollbar {
+  border-radius: 10px;
+  position: relative;
+  -ms-touch-action: none;
+  background: rgba(0, 0, 0, 0.1);
+}
+.swiper-container-horizontal > .swiper-scrollbar {
+  position: absolute;
+  left: 1%;
+  bottom: 3px;
+  z-index: 50;
+  height: 5px;
+  width: 98%;
+}
+.swiper-container-vertical > .swiper-scrollbar {
+  position: absolute;
+  right: 3px;
+  top: 1%;
+  z-index: 50;
+  width: 5px;
+  height: 98%;
+}
+.swiper-scrollbar-drag {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  left: 0;
+  top: 0;
+}
+.swiper-scrollbar-cursor-drag {
+  cursor: move;
+}
+/* Preloader */
+.swiper-lazy-preloader {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -21px;
+  margin-top: -21px;
+  z-index: 10;
+  -webkit-transform-origin: 50%;
+  -moz-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-animation: swiper-preloader-spin 1s steps(12, end) infinite;
+  -moz-animation: swiper-preloader-spin 1s steps(12, end) infinite;
+  animation: swiper-preloader-spin 1s steps(12, end) infinite;
+}
+.swiper-lazy-preloader:after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-position: 50%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.swiper-lazy-preloader-white:after {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+@-webkit-keyframes swiper-preloader-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes swiper-preloader-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+* {
+  margin:0;
+  padding:0;  
+  box-sizing:border-box;
+}
+a {
+  text-decoration: none;
+}
+img {
+  margin: 0 10%;
+  width:80%;
+}
+button {
+  outline: none;
+}
+
+@font-face {
+  font-family: Alliance;
+  src: url("fonts/alliance_regular.otf") format("opentype");
+}
+@font-face {
+  font-family: Arno;
+  src: url("fonts/arno_light.ttf") format("truetype");
+}
+
+.topSidebar {
+  position: fixed;
+  margin: 0 1%;
+  width: 98%;
+  height: 60px;
+  border-bottom: 1px solid #5d5b53;
+  z-index: 1111;
+}
+.menuTopSidebar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background-color: #1f1f1f;
+  transition: all .3s;
+  top: -60px;
+  z-index: 1000;
+  text-align: center;
+  overflow: hidden;
+}
+
+.menuTopSidebar.open {
+  top: 0;
+}
+.menuTopSidebar.close {
+  transition-delay: .8s;
+}
+
+
+.menuWrap {
+  width: 100%;
+  margin-top: 60px;
+  height: calc(100% - 60px);
+}
+.swiper-slide {
+  position: relative;
+  background-color: #1f1f1f;
+  width: 520px;
+  height: 100%;
+  /*border: 1px solid #cfc8b7;*/
+  border-right: 1px solid #5d5b53;
+  overflow-y: scroll;
+}
+.swiper-slide:last-child {
+  border-right: 0px;
+}
+
+form {
+  background-color: pink;
+}
+
+.containerSlider {
+  display: block;
+  float: left;
+  width: calc(100% - 160px);
+  height: 100%;
+}
+
+
+.filterSidebar {
+  display: block;
+  float: left;
+  width: 160px;
+  height: 100%;
+  border-right: 1px solid #5d5b53;
+  background-color: #1f1f1f;
+}
+.filterSidebar__buttons {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 100px);
+  border-bottom: 1px solid #5d5b53;
+}
+.filterButton, .listButton {
+  position: absolute;
+  margin-left: -40px;
+  width: 80px;
+  height: 40px;
+  background-color: transparent;
+  color: #cecbc7;
+  border: 2px solid #5d5b53;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.filterButton:hover, .listButton:hover {
+  background-color: #383838;
+}
+.filterButton {
+  top: 25px;
+}
+.listButton {
+  bottom: 25px;
+}
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #1f1f1f;
+}
+
+.countryTitle {
+  position: fixed;
+  bottom: 0;
+  width: 518.5px;
+  height: 60px;
+  background-color: #1f1f1f;
+  z-index: 888;
+  padding: 20px 0;
+}
+.countryTitle__name {
+  text-align: center;
+  font-family: 'Alliance';
+  font-size: 16px;
+  font-weight: 100;
+  color: #cfc8b7;
+}
+
+.painter {
+  width: 100%;
+  height: 100%;
+  /*background-color: #000;*/
+  padding: 110px 25px;
+  /*border-bottom: 1px solid #5d5b53;*/
+  overflow: hidden;
+}
+.painter__info {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /*background-color: red;*/
+}
+.painter__textWrap {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 470px);
+  /*background-color: blue;*/
+}
+.painter__text {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  /*background-color: pink;*/
+}
+.painter__imgWrap {
+  width: 100%;
+  height: 470px;
+  /*background-color: darkgreen;*/
+}
+.painter__img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.painter__imgBg {
+  background: url('https://parlaebasta.files.wordpress.com/2016/11/vergine-delle-rocce.jpg?w=500') center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  transition: all .5s;
+  transform: scale(1.2);
+}
+.painter__imgBg:hover {
+  transform: scale(1);
+}
+.painter__name,
+.painter__years {
+  text-align: center;
+  font-family: sans-serif;
+  color: #cfc8b7;
+}
+.painter__name {
+  font-family: 'Alliance';
+  font-size: 28px;
+  font-weight: 400;
+}
+.painter__years {
+  margin-top: 15px;
+  font-family: 'Arno';
+  font-size: 20px;
+  font-weight: 600;
+  color: #666566;
+}
+/*.writer .booksWrap {
+  display: none;
+}*/
+
+.booksWrap {
+  border: 1px solid #5d5b53;
+}
+.picture {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  /*border: .5px solid #5d5b53;*/
+  overflow: hidden;
+}
+.picture__info {
+  width: 100%;
+  height: 95%;
+  /*background-color: red;*/
+}
+.picture__textWrap {
+  position: relative;
+  width: 100%;
+  height: 55%;
+  /*background-color: blue;*/
+}
+.picture__text {
+  width: 100%;
+  /*background-color: pink;*/
+}
+.picture__name {
+  /*text-align: center;*/
+  font-family: 'Arno';
+  /*font-weight: 600;*/
+  color: #cfc8b7;
+  font-size: 18px;
+}
+.picture__date {
+  font-size: 24px;
+  padding: 5px 0;
+  font-family: 'Alliance';
+  color: #cfc8b7;
+  font-weight: 600;
+}
+.picture__imgWrap {
+  position: relative;
+  width: 100%;
+  height: 45%;
+  /*background-color: yellow;*/
+}
+.picture__img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  /*background-color: red;*/
+}
+.picture__img:before {
+  content: "";
+  padding-top: 100%;
+  float: left;
+}
+.picture__imgBg {
+  position: absolute;
+  background: url('https://parlaebasta.files.wordpress.com/2016/11/vergine-delle-rocce.jpg?w=500') center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  transition: all .5s;
+  transform: scale(1.2);
+}
+.picture__imgBg:hover {
+  transform: scale(1);
+}
+
+.painterBlock {
+  width: 25%;
+  height: 100%;
+  display: block;
+  float: left;
+  /*border: 1px solid #5d5b53;*/
+  border-right: 1px solid #5d5b53;
+}
+.painterBlock__represent {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  /*border: 1px solid #5d5b53;*/
+  border-bottom: 1px solid #5d5b53;
+  overflow: hidden;
+}
+.painterQuick {
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  transform: translateY(-70%);
+  /*background-color: pink;*/
+}
+.painterQuick__imgWrap {
+  position: relative;
+  width: 100%;
+  /*background-color: red;*/
+}
+.painterQuick__img {
+  width: 60px;
+  height: 60px;
+  margin: 0 0 15px;
+  /*background-color: red;*/
+  border-radius: 50%;
+  /*border: 1px solid #fff;*/
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.picturesBlock {
+  width: 26%;
+  height: 100%;
+  display: block;
+  float: left;
+  /*border: 1px solid #5d5b53;*/
+  border-right: 1px solid #5d5b53;
+  overflow-y: scroll;
+}
+.painterQuick__name {
+  text-align: left;
+  font-family: 'Alliance';
+  font-weight: 400;
+  color: #cfc8b7;
+  font-size: 24px;
+}
+.painterBlock__info {
+  width: 100%;
+  height: 50%;
+  /*border: 1px solid #5d5b53;*/
+  overflow: hidden;
+}
+.painterBlock__category {
+  width: 100%;
+  margin: 12% 0;
+  /*background-color: pink;*/
+}
+.painterQuick__subtitle,
+.painterBlock__title {
+  margin: 4px 0;
+  font-family: 'Alliance';
+  color: #cfc8b7;
+  font-size: 14px;
+  font-weight: 100;
+}
+.painterBlock__title {
+  font-family: 'Arno';
+  font-size: 18px;
+}
+.painterBlock__data {
+  font-family: 'Alliance';
+  color: #cfc8b7;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.active {
+  background-color: #808080;
+}
+
+.lifeBlock {
+  width: 49%;
+  height: 100%;
+  display: block;
+  float: left;
+  /*border: 1px solid #5d5b53;*/
+  /*background-color: pink;*/
+}
+.lifeBlock__box {
+  margin-left: 2%;
+  width: 98%;
+  height: 50%;
+  /*border: 1px solid #5d5b53;*/
+  border-bottom: 1px solid #5d5b53;
+  /*background-color: lightblue;*/
+}
+.lifeBlock__box._earlyLife {
+  margin-top: 15px;
+  height: calc(50% - 15px);
+  border: 0px;
+}
+
+.lifeBlock__abstract {
+  width: 100%;
+  height: 100%;
+}
+.lifeBlock__titleWrap {
+  display: block;
+  float: left;
+  width: calc(100% - 220px);
+  text-align: left;
+}
+.lifeBlock__title {
+  margin-bottom: 10px;
+  font-family: 'Alliance';
+  font-size: 24px;
+  color: #cfc8b7;
+}
+.lifeBlock__circle {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+.lifeBlock__circle._synopsis {
+  background-color: #f14a32;
+}
+.lifeBlock__circle._earlyLife {
+  background-color: #1fba8c;
+}
+
+.lifeBlock__paragraphWrap {
+  display: block;
+  float: left;
+  width: 220px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.lifeBlock__paragraphWrap._synopsis {
+  overflow: scroll;
+}
+.lifeBlock__paragraph {
+  font-family: 'Alliance';
+  color: #cfc8b7;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+
+
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /*background-color: #517C63;*/
+  transition: all 1s;
+  /*transition-timing-function: ease-in-out;*/
+  top: -100%;
+  z-index: 888;
+  text-align: center;
+  overflow: hidden;
+}
+.menu.open {
+  top: 0;
+}
+
+.menuLeft {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /*background-color: #517C63;*/
+  background-color: #1f1f1f;
+  transition: all 1s;
+  right: -100%;
+  z-index: 1112;
+  /*text-align: center;*/
+}
+.menuLeft.open {
+  right: 0;
+}
+
+#nav-icon{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  margin: 25px 25px;
+  cursor: pointer;
+}
+
+
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 50%;
+  background: #D47474;
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav-icon span:nth-child(even) {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+}
+
+#nav-icon span:nth-child(odd) {
+  left:0px;
+  border-radius: 9px 0 0 9px;
+}
+
+#nav-icon span:nth-child(1), #nav-icon span:nth-child(2) {
+  top: 0px;
+}
+
+#nav-icon span:nth-child(3), #nav-icon span:nth-child(4) {
+  top: 18px;
+}
+
+#nav-icon span:nth-child(5), #nav-icon span:nth-child(6) {
+  top: 36px;
+}
+
+#nav-icon.open span:nth-child(1),#nav-icon.open span:nth-child(6) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-icon.open span:nth-child(2),#nav-icon.open span:nth-child(5) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav-icon.open span:nth-child(1) {
+  left: 5px;
+  top: 7px;
+}
+
+#nav-icon.open span:nth-child(2) {
+  left: calc(50% - 5px);
+  top: 7px;
+}
+
+#nav-icon.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+
+#nav-icon.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+
+#nav-icon.open span:nth-child(5) {
+  left: 5px;
+  top: 29px;
+}
+
+#nav-icon.open span:nth-child(6) {
+  left: calc(50% - 5px);
+  top: 29px;
+}
+
+.mainPage {
+  /*position: absolute;*/
+  /*overflow: scroll;*/
+  /*top: 0;*/
+  /*display: block;*/
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.title {
+  /*background-color: pink;*/
+  margin: 0 auto;
+  padding: 0 1.25em;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.title h1 {
+  padding: 0 0 0.2em;
+  color: #fff;
+  font-weight: 800;
+  font-size: 3.25em;
+  margin: 0 auto;
+}
+
+
+.container:not(.notrans) .mainPage,
+.container:not(.notrans) > .title,
+.container:not(.notrans) .content > div {
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+.container:not(.notrans) .mainPage {
+  -webkit-transition-timing-function: cubic-bezier(0.5,0,0.4,1);
+  transition-timing-function: cubic-bezier(0.5,0,0.4,1);
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.container .mainPage {
+  position: absolute;
+}
+
+.presentBlock,
+.block2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.presentBlock {
+  background-color: darkgray;
+  background-image: url('https://s1.1zoom.ru/big7/989/Pieter_Paul_Rubens_Men_Wild_boar_Horses_The_533231_2560x1663.jpg');
+  /*background: url('img/bg_fullHD/cardinal_FullHD.jpg');*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.presentBlock__info {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: calc(100% - 60px);
+  /*background-color: blue;*/
+}
+.paintnerData {
+  width: 100%;
+  height: 180px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  /*background-color: brown;*/
+}
+.paintnerData__years {
+  position: relative;
+  /*padding: 10px 0;*/
+  width: 100%;
+  height: 20px;
+  color: #cfc8b7;
+  font-family: 'Arno';
+  font-size: 24px;
+  /*background-color: purple;*/
+}
+.paintnerData__name {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  color: #cfc8b7;
+  font-family: 'Alliance';
+  font-size: 120px;
+  font-weight: 500;
+  /*font-family: sans-serif;*/
+  /*background-color: pink;*/
+}
+.paintnerData__country {
+  position: relative;
+  /*padding: 10px 0;*/
+  width: 100%;
+  height: 20px;
+  color: #cfc8b7;
+  font-family: 'Arno';
+  font-size: 24px;
+  /*background-color: darkred;*/
+}
+
+.paintingData {
+  display: none;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  /*background-color: brown;*/
+}
+.paintingData__img {
+  width: 100%;
+  height: 80px;
+  /*background-color: pink;*/
+}
+.paintingData__paint {
+  width: 100%;
+  height: 120px;
+  /*background-color: gray;*/
+}
+.paintInfo {
+  display: block;
+  padding: 45px 25px;
+  float: left;
+  width: 33.333333333%;
+  height: 100%;
+  /*border: 1px solid #fff;*/
+  text-align: left;
+  color: #cfc8b7;
+  font-weight: 500;
+}
+.paintInfo__century {
+  font-family: 'Arno';
+  font-size: 20px;
+  font-weight: 100;
+}
+.paintInfo__name {
+  font-family: 'Alliance';
+  font-size: 18px;
+}
+.exploreButton {
+  display: block;
+  padding: 30px 0;
+  float: left;
+  width: 33.333333333%;
+  height: 100%;
+  /*border: 1px solid #fff;*/
+  color: #cfc8b7;
+  font-family: 'Alliance';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.presentBlock[class*="bg"] .paintingData {
+  display: block;
+}
+.painterInfo {
+  display: block;
+  padding: 45px 25px;
+  float: left;
+  width: 33.333333333%;
+  height: 100%;
+  /*border: 1px solid #fff;*/
+  text-align: right;
+  color: #cfc8b7;
+  font-weight: 500;
+}
+.paintInfo__year {
+  font-family: 'Arno';
+  font-size: 20px;
+  font-weight: 100;
+}
+.painterInfo__name {
+  font-family: 'Alliance';
+  font-size: 18px;
+}
+.block2 {
+  background-color: pink;
+}
+
+.container > .title {
+  position: relative;
+  top: auto;
+  left: auto;
+  padding: 6em 1em 2em;
+}
+
+.container .content > div {
+  margin-top: 50px;
+  color: #b2b2c0;
+}
+
+.container > .title,
+.container .content > div {
+  -webkit-transform: translateY(400px);
+  transform: translateY(400px);
+  opacity: 0;
+}
+
+.container.open > .title,
+.container.open .content > div {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+.container.open {
+  overflow: hidden;
+}
+/*МЕНЯЕТ НАПРАВЛЕНИЕ АНИМАЦИИ ОСНОВНОГО БЛОКА С ЗАГОЛОВКОМ*/
+.container.open .mainPage {
+  opacity: 0;
+  -webkit-transform: translateY(40%) scale(1);
+  transform: translateY(40%) scale(1);
+}
+
+/* Delays */
+.container.open:not(.notrans) > .title {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.container.open:not(.notrans) .content > div {
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+
+.paintingData__menuButton {
+  margin: 0 auto;
+  /*position: absolute;
+  top: 50%;
+  left: 50%;*/
+  width: 80px;
+  height: 80px;
+  background-color: red;
+  border-radius: 50%;
+  /*border: 1px solid #fff;*/
+  /*-webkit-transform: translateX(-50%) translateY(0%);
+  transform: translateX(-50%) translateY(0%);*/
+  cursor: pointer;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nav-leftClose {
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  width: 80px;
+  height: 40px;
+  background-color: transparent;
+  color: #cecbc7;
+  border: 2px solid #5d5b53;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.nav-leftClose:hover {
+  background-color: #383838;
+}
+.menuLeft__infoWrap {
+  width: 98%;
+  height: calc(100% - 60px);
+  margin:  30px auto;
+  /*background-color: #000;*/
+}
+
+
+/*-------------------------
+  MAIN BACKGROUND IMG
+-------------------------*/
+._bg_titian {
+  background-image: url('img/bg_fullHD/titian_temptationChrist.jpg');
+}
+._bg_vinci {
+  background-image: url('img/bg_fullHD/vinci_mona.jpg');
+}
+._bg_raphael {
+  background-image: url('img/bg_fullHD/raphael_cardinal.jpg');
+}
+._bg_botticelli {
+  background-image: url('img/bg_fullHD/botticelli_storyOfLucretia.jpg');
+}
+
+._bg_vanLoo {
+  background-image: url('img/bg_fullHD/vanLoo_cardinal.jpg');
+}
+._bg_vanGogh {
+  background-image: url('img/bg_fullHD/vanGogh_starryNight.jpg');
+}
+._bg_delacroix {
+  background-image: url('img/bg_fullHD/delacroix_crusaders.jpg');
+}
+._bg_monet {
+  background-image: url('img/bg_fullHD/monet_garden.jpg');
+}
+
+._bg_murillo {
+  background-image: url('img/bg_fullHD/murillo_magdalene.jpg');
+}
+._bg_dali {
+  background-image: url('img/bg_fullHD/dali_spider.jpg');
+}
+._bg_picasso {
+  background-image: url('img/bg_fullHD/picasso_rouge.jpg');
+}
+._bg_greco {
+  background-image: url('img/bg_fullHD/greco_riz.jpg');
+}
+
+._bg_eyck {
+  background-image: url('img/bg_fullHD/eyck_madonnaCanon.jpg');
+}
+._bg_dyck {
+  background-image: url('img/bg_fullHD/dyck_francois.jpg');
+}
+._bg_magritte {
+  background-image: url('img/bg_fullHD/magritte_golconda.jpg');
+}
+
+._bg_mengs {
+  background-image: url('img/bg_fullHD/mengs_charles.jpg');
+}
+._bg_camphausen {
+  background-image: url('img/bg_fullHD/camphausen_kaube.jpg');
+}
+._bg_winterhalter {
+  background-image: url('img/bg_fullHD/winterhalter_royalFamily.jpg');
+}
+
+._bg_brullov {
+  background-image: url('img/bg_fullHD/brullov_pompeii.jpg');
+}
+._bg_repin {
+  background-image: url('img/bg_fullHD/repin_boatmen.jpg');
+}
+._bg_kramskoy {
+  background-image: url('img/bg_fullHD/kramskoy_unknown.jpg');
+}
+._bg_shishkin {
+  background-image: url('img/bg_fullHD/shishkin_morning.jpg');
+}
+._bg_aivazovsky {
+  background-image: url('img/bg_fullHD/aivazovsky_review.jpg');
+}
+._bg_vasnetsov {
+  background-image: url('img/bg_fullHD/vasnetsov_crossroads.jpg');
+}
+
+._bg_bruegel {
+  background-image: url('img/bg_fullHD/bruegel_babel.jpg');
+}
+._bg_rubens {
+  background-image: url('img/bg_fullHD/rubens_peaceAndWar.jpg');
+}
+._bg_rembrandt {
+  background-image: url('img/bg_fullHD/rembrandt_anatomy.jpg');
+}
+
+
+
+
+/*-------------------------
+  MENU IMG PICTURE
+-------------------------*/
+.painter__imgBg._bg_titian, .picture__imgBg._bg_titian {
+  background-image: url('img/bg_fullHD/titian_temptationChrist_picture.jpg');
+}
+.painter__imgBg._bg_vinci, .picture__imgBg._bg_vinci {
+  background-image: url('img/bg_fullHD/vinci_mona_picture.jpg');
+}
+.painter__imgBg._bg_raphael, .picture__imgBg._bg_raphael {
+  background-image: url('img/bg_fullHD/raphael_cardinal_picture.jpg');
+}
+.painter__imgBg._bg_botticelli, .picture__imgBg._bg_botticelli {
+  background-image: url('img/bg_fullHD/botticelli_storyOfLucretia_picture.jpg');
+}
+
+.painter__imgBg._bg_vanLoo, .picture__imgBg._bg_vanLoo {
+  background-image: url('img/bg_fullHD/vanLoo_cardinal_picture.jpg');
+}
+.painter__imgBg._bg_vanGogh, .picture__imgBg._bg_vanGogh {
+  background-image: url('img/bg_fullHD/vanGogh_starryNight_picture.jpg');
+}
+.painter__imgBg._bg_delacroix, .picture__imgBg._bg_delacroix {
+  background-image: url('img/bg_fullHD/delacroix_crusaders_picture.jpg');
+}
+.painter__imgBg._bg_monet, .picture__imgBg._bg_monet {
+  background-image: url('img/bg_fullHD/monet_garden_picture.jpg');
+}
+
+.painter__imgBg._bg_murillo, .picture__imgBg._bg_murillo {
+  background-image: url('img/bg_fullHD/murillo_magdalene_picture.jpg');
+}
+.painter__imgBg._bg_dali, .picture__imgBg._bg_dali {
+  background-image: url('img/bg_fullHD/dali_spider_picture.jpg');
+}
+.painter__imgBg._bg_picasso, .picture__imgBg._bg_picasso {
+  background-image: url('img/bg_fullHD/picasso_rouge_picture.jpg');
+}
+.painter__imgBg._bg_greco, .picture__imgBg._bg_greco {
+  background-image: url('img/bg_fullHD/greco_riz_picture.jpg');
+}
+
+.painter__imgBg._bg_eyck, .picture__imgBg._bg_eyck {
+  background-image: url('img/bg_fullHD/eyck_madonnaCanon_picture.jpg');
+}
+.painter__imgBg._bg_dyck, .picture__imgBg._bg_dyck {
+  background-image: url('img/bg_fullHD/dyck_francois_picture.jpg');
+}
+.painter__imgBg._bg_magritte, .picture__imgBg._bg_magritte {
+  background-image: url('img/bg_fullHD/magritte_golconda_picture.jpg');
+}
+
+.painter__imgBg._bg_mengs, .picture__imgBg._bg_mengs {
+  background-image: url('img/bg_fullHD/mengs_charles_picture.jpg');
+}
+.painter__imgBg._bg_camphausen, .picture__imgBg._bg_camphausen {
+  background-image: url('img/bg_fullHD/camphausen_kaube_picture.jpg');
+}
+.painter__imgBg._bg_winterhalter, .picture__imgBg._bg_winterhalter {
+  background-image: url('img/bg_fullHD/winterhalter_royalFamily_picture.jpg');
+}
+
+.painter__imgBg._bg_brullov, .picture__imgBg._bg_brullov {
+  background-image: url('img/bg_fullHD/brullov_pompeii_picture.jpg');
+}
+.painter__imgBg._bg_repin, .picture__imgBg._bg_repin {
+  background-image: url('img/bg_fullHD/repin_boatmen_picture.jpg');
+}
+.painter__imgBg._bg_kramskoy, .picture__imgBg._bg_kramskoy {
+  background-image: url('img/bg_fullHD/kramskoy_unknown_picture.jpg');
+}
+.painter__imgBg._bg_shishkin, .picture__imgBg._bg_shishkin {
+  background-image: url('img/bg_fullHD/shishkin_morning_picture.jpg');
+}
+.painter__imgBg._bg_aivazovsky, .picture__imgBg._bg_aivazovsky {
+  background-image: url('img/bg_fullHD/aivazovsky_review_picture.jpg');
+}
+.painter__imgBg._bg_vasnetsov, .picture__imgBg._bg_vasnetsov {
+  background-image: url('img/bg_fullHD/vasnetsov_crossroads_picture.jpg');
+}
+
+.painter__imgBg._bg_bruegel, .picture__imgBg._bg_bruegel {
+  background-image: url('img/bg_fullHD/bruegel_babel_picture.jpg');
+}
+.painter__imgBg._bg_rubens, .picture__imgBg._bg_rubens {
+  background-image: url('img/bg_fullHD/rubens_peaceAndWar_picture.jpg');
+}
+.painter__imgBg._bg_rembrandt, .picture__imgBg._bg_rembrandt {
+  background-image: url('img/bg_fullHD/rembrandt_anatomy_picture.jpg');
+}
+
+
+
+
+/*-------------------------
+  PORTRAIT
+-------------------------*/
+.painterQuick__img._bg_titian, .paintingData__menuButton._bg_titian {
+  background-image: url('img/bg_fullHD/titian_portrait.jpg');
+}
+.painterQuick__img._bg_vinci, .paintingData__menuButton._bg_vinci {
+  background-image: url('img/bg_fullHD/vinci_portrait.jpg');
+}
+.painterQuick__img._bg_raphael, .paintingData__menuButton._bg_raphael {
+  background-image: url('img/bg_fullHD/raphael_portrait.jpg');
+}
+.painterQuick__img._bg_botticelli, .paintingData__menuButton._bg_botticelli {
+  background-image: url('img/bg_fullHD/botticelli_portrait.jpg');
+}
+
+.painterQuick__img._bg_vanLoo, .paintingData__menuButton._bg_vanLoo {
+  background-image: url('img/bg_fullHD/vanLoo_portrait.jpg');
+}
+.painterQuick__img._bg_vanGogh, .paintingData__menuButton._bg_vanGogh {
+  background-image: url('img/bg_fullHD/vanGogh_portrait.jpg');
+}
+.painterQuick__img._bg_delacroix, .paintingData__menuButton._bg_delacroix {
+  background-image: url('img/bg_fullHD/delacroix_portrait.jpg');
+}
+.painterQuick__img._bg_monet, .paintingData__menuButton._bg_monet {
+  background-image: url('img/bg_fullHD/monet_portrait.jpg');
+}
+
+.painterQuick__img._bg_murillo, .paintingData__menuButton._bg_murillo {
+  background-image: url('img/bg_fullHD/murillo_portrait.jpg');
+}
+.painterQuick__img._bg_dali, .paintingData__menuButton._bg_dali {
+  background-image: url('img/bg_fullHD/dali_portrait.jpg');
+}
+.painterQuick__img._bg_picasso, .paintingData__menuButton._bg_picasso {
+  background-image: url('img/bg_fullHD/picasso_portrait.jpg');
+}
+.painterQuick__img._bg_greco, .paintingData__menuButton._bg_greco {
+  background-image: url('img/bg_fullHD/greco_portrait.jpg');
+}
+
+.painterQuick__img._bg_eyck, .paintingData__menuButton._bg_eyck {
+  background-image: url('img/bg_fullHD/eyck_portrait.jpg');
+}
+.painterQuick__img._bg_dyck, .paintingData__menuButton._bg_dyck {
+  background-image: url('img/bg_fullHD/dyck_portrait.jpg');
+}
+.painterQuick__img._bg_magritte, .paintingData__menuButton._bg_magritte {
+  background-image: url('img/bg_fullHD/magritte_portrait.jpg');
+}
+
+.painterQuick__img._bg_mengs, .paintingData__menuButton._bg_mengs {
+  background-image: url('img/bg_fullHD/mengs_portrait.jpg');
+}
+.painterQuick__img._bg_camphausen, .paintingData__menuButton._bg_camphausen {
+  background-image: url('img/bg_fullHD/camphausen_portrait.jpg');
+}
+.painterQuick__img._bg_winterhalter, .paintingData__menuButton._bg_winterhalter {
+  background-image: url('img/bg_fullHD/winterhalter_portrait.jpg');
+}
+
+.painterQuick__img._bg_brullov, .paintingData__menuButton._bg_brullov {
+  background-image: url('img/bg_fullHD/brullov_portrait.jpg');
+}
+.painterQuick__img._bg_repin, .paintingData__menuButton._bg_repin {
+  background-image: url('img/bg_fullHD/repin_portrait.jpg');
+}
+.painterQuick__img._bg_kramskoy, .paintingData__menuButton._bg_kramskoy {
+  background-image: url('img/bg_fullHD/kramskoy_portrait.jpg');
+}
+.painterQuick__img._bg_shishkin, .paintingData__menuButton._bg_shishkin {
+  background-image: url('img/bg_fullHD/shishkin_portrait.jpg');
+}
+.painterQuick__img._bg_aivazovsky, .paintingData__menuButton._bg_aivazovsky {
+  background-image: url('img/bg_fullHD/aivazovsky_portrait.jpg');
+}
+.painterQuick__img._bg_vasnetsov, .paintingData__menuButton._bg_vasnetsov {
+  background-image: url('img/bg_fullHD/vasnetsov_portrait.jpg');
+}
+
+.painterQuick__img._bg_bruegel, .paintingData__menuButton._bg_bruegel {
+  background-image: url('img/bg_fullHD/bruegel_portrait.jpg');
+}
+.painterQuick__img._bg_rubens, .paintingData__menuButton._bg_rubens {
+  background-image: url('img/bg_fullHD/rubens_portrait.jpg');
+}
+.painterQuick__img._bg_rembrandt, .paintingData__menuButton._bg_rembrandt {
+  background-image: url('img/bg_fullHD/rembrandt_portrait.jpg');
+}
+
+
+
+/*-------------------------
+  PAINTER PICTURES
+-------------------------*/
+._bg_saintChristopher {
+  background-image: url('img/bg_fullHD/titian_saintChristopher_picture.jpg');
+}
+._bg_cardinalPietro {
+  background-image: url('img/bg_fullHD/titian_cardinalPietro_picture.jpg');
+}
+._bg_crowningThorns {
+  background-image: url('img/bg_fullHD/titian_crowningThorns_picture.jpg');
+}
+._bg_christWithCross {
+  background-image: url('img/bg_fullHD/titian_christWithCross_picture.jpg');
+}
+
+._bg_madonnaInRocks {
+  background-image: url('img/bg_fullHD/vinci_madonnaInRocks_picture.jpg');
+}
+._bg_baptismOfChrist {
+  background-image: url('img/bg_fullHD/vinci_baptismOfChrist_picture.jpg');
+}
+._bg_madonnaLitta {
+  background-image: url('img/bg_fullHD/vinci_madonnaLitta_picture.jpg');
+}
+._bg_adorationOfMagi {
+  background-image: url('img/bg_fullHD/vinci_adorationOfMagi_picture.jpg');
+}
+._bg_ginevraBenci {
+  background-image: url('img/bg_fullHD/vinci_ginevraBenci_picture.jpg');
+}
+
+._bg_michaelDevil {
+  background-image: url('img/bg_fullHD/raphael_michaelDevil_picture.jpg');
+}
+._bg_angel {
+  background-image: url('img/bg_fullHD/raphael_angel_picture.jpg');
+}
+._bg_angel1500 {
+  background-image: url('img/bg_fullHD/raphael_angel1500_picture.jpg');
+}
+._bg_donnaVelata {
+  background-image: url('img/bg_fullHD/raphael_donnaVelata_picture.jpg');
+}
+._bg_madonnaVeil {
+  background-image: url('img/bg_fullHD/raphael_madonnaVeil_picture.jpg');
+}
+
+._bg_angel {
+  background-image: url('img/bg_fullHD/raphael_angel_picture.jpg');
+}
+._bg_angel1500 {
+  background-image: url('img/bg_fullHD/raphael_angel1500_picture.jpg');
+}
+._bg_donnaVelata {
+  background-image: url('img/bg_fullHD/raphael_donnaVelata_picture.jpg');
+}
+._bg_madonnaVeil {
+  background-image: url('img/bg_fullHD/raphael_madonnaVeil_picture.jpg');
+}
+
+._bg_madonnaAndChild {
+  background-image: url('img/bg_fullHD/botticelli_madonnaAndChild_picture.jpg');
+}
+._bg_spring {
+  background-image: url('img/bg_fullHD/botticelli_spring_picture.jpg');
+}
+._bg_dante {
+  background-image: url('img/bg_fullHD/botticelli_dante_picture.jpg');
+}
+._bg_pallasAndCentaur {
+  background-image: url('img/bg_fullHD/botticelli_pallasAndCentaur_picture.jpg');
+}
+
+._bg_familyPhilips {
+  background-image: url('img/bg_fullHD/vanLoo_familyPhilips_picture.jpg');
+}
+._bg_goddessDiana {
+  background-image: url('img/bg_fullHD/vanLoo_goddessDiana_picture.jpg');
+}
+._bg_marques {
+  background-image: url('img/bg_fullHD/vanLoo_marques_picture.jpg');
+}
+
+._bg_wheatField {
+  background-image: url('img/bg_fullHD/vanGogh_wheatField_picture.jpg');
+}
+._bg_redVineyards {
+  background-image: url('img/bg_fullHD/vanGogh_redVineyards_picture.jpg');
+}
+._bg_sower {
+  background-image: url('img/bg_fullHD/vanGogh_sower_picture.jpg');
+}
+
+._bg_freedom {
+  background-image: url('img/bg_fullHD/delacroix_freedom_picture.jpg');
+}
+._bg_struggle {
+  background-image: url('img/bg_fullHD/delacroix_struggle_picture.jpg');
+}
+._bg_flowers {
+  background-image: url('img/bg_fullHD/delacroix_flowers_picture.jpg');
+}
+
+._bg_giverny {
+  background-image: url('img/bg_fullHD/monet_giverny_picture.jpg');
+}
+._bg_camille {
+  background-image: url('img/bg_fullHD/manet_camille_picture.jpg');
+}
+
+._bg_sorrows {
+  background-image: url('img/bg_fullHD/murillo_sorrows_picture.jpg');
+}
+._bg_pilgrims {
+  background-image: url('img/bg_fullHD/murillo_pilgrims_picture.jpg');
+}
+._bg_ecceHomo {
+  background-image: url('img/bg_fullHD/murillo_ecceHomo_picture.jpg');
+}
+
+._bg_saat {
+  background-image: url('img/bg_fullHD/dali_saat_picture.jpg');
+}
+._bg_geopoliticus {
+  background-image: url('img/bg_fullHD/dali_geopoliticus_picture.jpg');
+}
+._bg_memory {
+  background-image: url('img/bg_fullHD/dali_memory_picture.jpg');
+}
+
+._bg_barcelone {
+  background-image: url('img/bg_fullHD/picasso_barcelone_picture.jpg');
+}
+._bg_lenfant {
+  background-image: url('img/bg_fullHD/picasso_lenfant_picture.jpg');
+}
+._bg_mulet {
+  background-image: url('img/bg_fullHD/picasso_mulet_picture.jpg');
+}
+
+._bg_orgas {
+  background-image: url('img/bg_fullHD/greco_orgas_picture.jpg');
+}
+._bg_crucifixion {
+  background-image: url('img/bg_fullHD/greco_crucifixion_picture.jpg');
+}
+._bg_jorgeManuel {
+  background-image: url('img/bg_fullHD/greco_jorgeManuel_picture.jpg');
+}
+
+._bg_turban {
+  background-image: url('img/bg_fullHD/eyck_turban_picture.jpg');
+}
+._bg_ghent {
+  background-image: url('img/bg_fullHD/eyck_ghent_picture.jpg');
+}
+._bg_fountain {
+  background-image: url('img/bg_fullHD/eyck_fountain_picture.jpg');
+}
+
+._bg_lamentation {
+  background-image: url('img/bg_fullHD/dyck_lamentation_picture.jpg');
+}
+._bg_charles {
+  background-image: url('img/bg_fullHD/dyck_charles_picture.jpg');
+}
+._bg_family {
+  background-image: url('img/bg_fullHD/dyck_family_picture.jpg');
+}
+._bg_stMartin {
+  background-image: url('img/bg_fullHD/dyck_stMartin_picture.jpg');
+}
+
+._bg_sonOfMan {
+  background-image: url('img/bg_fullHD/magritte_sonOfMan_picture.jpg');
+}
+._bg_obstacle {
+  background-image: url('img/bg_fullHD/magritte_obstacle_picture.jpg');
+}
+._bg_recognition {
+  background-image: url('img/bg_fullHD/magritte_recognition_picture.jpg');
+}
+
+._bg_adoration {
+  background-image: url('img/bg_fullHD/mengs_adoration_picture.jpg');
+}
+._bg_perseus {
+  background-image: url('img/bg_fullHD/mengs_perseus_picture.jpg');
+}
+._bg_stJoseph {
+  background-image: url('img/bg_fullHD/mengs_stJoseph_picture.jpg');
+}
+
+._bg_bismarck {
+  background-image: url('img/bg_fullHD/camphausen_bismarck_picture.jpg');
+}
+._bg_blucher {
+  background-image: url('img/bg_fullHD/camphausen_blucher_picture.jpg');
+}
+._bg_austrians {
+  background-image: url('img/bg_fullHD/camphausen_austrians_picture.jpg');
+}
+
+._bg_firstOfMay {
+  background-image: url('img/bg_fullHD/winterhalter_firstOfMay_picture.jpg');
+}
+._bg_florinda {
+  background-image: url('img/bg_fullHD/winterhalter_florinda_picture.jpg');
+}
+._bg_napoleon {
+  background-image: url('img/bg_fullHD/winterhalter_napoleon_picture.jpg');
+}
+
+._bg_horsewoman {
+  background-image: url('img/bg_fullHD/brullov_horsewoman_picture.jpg');
+}
+._bg_samoilova {
+  background-image: url('img/bg_fullHD/brullov_samoilova_picture.jpg');
+}
+._bg_vesper {
+  background-image: url('img/bg_fullHD/brullov_vesper_picture.jpg');
+}
+
+._bg_ivanTerrible {
+  background-image: url('img/bg_fullHD/repin_ivanTerrible_picture.jpg');
+}
+._bg_cossacks {
+  background-image: url('img/bg_fullHD/repin_cossacks_picture.jpg');
+}
+._bg_tolstoy {
+  background-image: url('img/bg_fullHD/repin_tolstoy_picture.jpg');
+}
+
+._bg_desert {
+  background-image: url('img/bg_fullHD/kramskoy_desert_picture.jpg');
+}
+._bg_mariaFeodorovna {
+  background-image: url('img/bg_fullHD/kramskoy_mariaFeodorovna_picture.jpg');
+}
+._bg_mina {
+  background-image: url('img/bg_fullHD/kramskoy_mina_picture.jpg');
+}
+._bg_kramskaya {
+  background-image: url('img/bg_fullHD/kramskoy_kramskaya_picture.jpg');
+}
+
+._bg_northern {
+  background-image: url('img/bg_fullHD/shishkin_northern_picture.jpg');
+}
+._bg_landscape {
+  background-image: url('img/bg_fullHD/shishkin_landscape_picture.jpg');
+}
+._bg_waterfront {
+  background-image: url('img/bg_fullHD/shishkin_waterfront_picture.jpg');
+}
+._bg_birch {
+  background-image: url('img/bg_fullHD/shishkin_birch_picture.jpg');
+}
+
+._bg_chesme {
+  background-image: url('img/bg_fullHD/aivazovsky_chesme_picture.jpg');
+}
+._bg_windmill {
+  background-image: url('img/bg_fullHD/aivazovsky_windmill_picture.jpg');
+}
+._bg_turret {
+  background-image: url('img/bg_fullHD/aivazovsky_turret_picture.jpg');
+}
+._bg_mercury {
+  background-image: url('img/bg_fullHD/aivazovsky_mercury_picture.jpg');
+}
+
+._bg_threeBogatyrs {
+  background-image: url('img/bg_fullHD/vasnetsov_threeBogatyrs_picture.jpg');
+}
+._bg_tsarIvan {
+  background-image: url('img/bg_fullHD/vasnetsov_tsarIvan_picture.jpg');
+}
+._bg_bogatyr {
+  background-image: url('img/bg_fullHD/vasnetsov_bogatyr_picture.jpg');
+}
+
+._bg_saul {
+  background-image: url('img/bg_fullHD/bruegel_saul_picture.jpg');
+}
+._bg_flemish {
+  background-image: url('img/bg_fullHD/bruegel_flemish_picture.jpg');
+}
+._bg_rebelAngels {
+  background-image: url('img/bg_fullHD/bruegel_rebelAngels_picture.jpg');
+}
+
+._bg_andromeda {
+  background-image: url('img/bg_fullHD/rubens_andromeda_picture.jpg');
+}
+._bg_silenus {
+  background-image: url('img/bg_fullHD/rubens_silenus_picture.jpg');
+}
+._bg_perseus {
+  background-image: url('img/bg_fullHD/rubens_perseus_picture.jpg');
+}
+._bg_tigerHunting {
+  background-image: url('img/bg_fullHD/rubens_tigerHunting_picture.jpg');
+}
+
+._bg_galilee {
+  background-image: url('img/bg_fullHD/rembrandt_galilee_picture.jpg');
+}
+._bg_musicians {
+  background-image: url('img/bg_fullHD/rembrandt_musicians_picture.jpg');
+}
+._bg_bueno {
+  background-image: url('img/bg_fullHD/rembrandt_bueno_picture.jpg');
+}
+
+
+.topSidebar__burgerWrap {
+  display: block;
+  float: left;
+  width: 25%;
+  height: 100%;
+  /*background-color: brown;*/
+}
+.wrap {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  width: 30px;
+  height: 16px;
+  cursor: pointer;
+  /*background-color: pink;*/
+}
+.item {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.wrap.open .itemFirst {
+  animation: burgerTop 0.6s ease-in-out forwards, burgerRotateTop 0.6s ease-in-out 0.4s forwards;
+}
+.wrap.open .itemSecond {
+  animation: burgerBottom 0.6s ease-in-out forwards, burgerRotateBottom 0.6s ease-in-out 0.4s forwards;
+}
+.wrap.close .itemFirst {
+  top: 6px;
+  transform: rotate(45deg);
+  animation: burgerTop2 0.6s ease-in-out 0.4s forwards, burgerRotateTop2 0.6s ease-in-out forwards;
+}
+.wrap.close .itemSecond {
+  bottom: 6px;
+  transform: rotate(45deg);
+  animation: burgerBottom2 0.6s ease-in-out 0.4s forwards, burgerRotateBottom2 0.6s ease-in-out forwards;
+}
+
+.itemFirst {
+  top: 0;
+}
+.itemSecond {
+  bottom: 0;
+}
+
+@keyframes burgerTop {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 6px;
+  }
+  100% {
+    top: 6px;
+  }
+}
+@keyframes burgerRotateTop {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes burgerBottom {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 6px;
+  }
+  100% {
+    bottom: 6px;
+  }
+}
+@keyframes burgerRotateBottom {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+
+
+
+@keyframes burgerTop2 {
+  0% {
+    top: 6px;
+  }
+  50% {
+    top: 6px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes burgerRotateTop2 {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes burgerBottom2 {
+  0% {
+    bottom: 6px;
+  }
+  50% {
+    bottom: 6px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes burgerRotateBottom2 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ----- PHONE BURGER */
+@keyframes burgerTopPhone {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 5px;
+  }
+  100% {
+    top: 5px;
+  }
+}
+@keyframes burgerBottomPhone {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 5px;
+  }
+}
+@keyframes burgerTop2Phone {
+  0% {
+    top: 5px;
+  }
+  50% {
+    top: 5px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes burgerBottom2Phone {
+  0% {
+    bottom: 5px;
+  }
+  50% {
+    bottom: 5px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+.topSidebar__nameWrap {
+  display: block;
+  float: left;
+  width: 26%;
+  height: 100%;
+  /*background-color: green;*/
+}
+.topSidebar__name {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #cfc8b7;
+  font-family: 'Arno';
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.topSidebar__eventsWrap {
+  position: relative;
+  display: block;
+  float: left;
+  width: calc(49% - 110px);
+  height: 100%;
+  /*background-color: purple;*/
+}
+.topSidebar__events {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translateX(-55%) translateY(-50%);
+  font-family: 'Alliance';
+  font-size: 16px;
+  font-weight: 500;
+  /*background-color: pink;*/
+}
+.topSidebar__event {
+  color: #cfc8b7;
+}
+.topSidebar__slash {
+  margin: 0 15px;
+}
+
+.topSidebar__ticketsWrap {
+  position: relative;
+  display: block;
+  float: left;
+  width: 110px;
+  height: 100%;
+  /*background-color: pink;*/
+}
+.topSidebar__tickets {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: #cfc8b7;
+  transform: translateY(-50%);
+  font-family: 'Alliance';
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
+  transition: all 1s;
+  /* transition-timing-function: ease-in-out; */
+  top: 0;
+  z-index: 9999;
+}
+.preloader.closePreloader {
+  top: -100%;
+}
+
+.imagePreloader {
+  position: absolute;
+  width: 120vw;
+  height: 100%;
+  background: url('https://img4.goodfon.ru/original/1920x1200/1/e0/mattias-stom-ecce-homo-eto-chelovek-kholst-maslo-kartina-mif.jpg') center no-repeat;
+  /*background: url('img/bg_fullHD/cardinal_FullHD.jpg') center no-repeat;*/
+  background-size: cover;
+  animation: animPreloader 35s linear infinite;
+}
+.imagePreloader__titleWrap {
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.imagePreloader__title {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 150px;
+  color: #cfc8b7;
+  font-family: 'Alliance';
+  font-size: 120px;
+  font-weight: 500;
+}
+
+@keyframes animPreloader {
+  0% { background-position: 0 0; }
+  50% { background-position: -300px 0; }
+  100% { background-position: 0 0; }
+}
+
+
+@media screen and (max-width: 1600px) {
+  .swiper-slide {
+    width: 470px;
+  }
+  .countryTitle {
+    width: 468.5px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .painter {
+    padding: 90px 15px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 440px);
+  }
+  .painter__imgWrap {
+    height: 440px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .swiper-slide {
+    width: 400px;
+  }
+  .countryTitle {
+    width: 398.5px;
+  }
+  .painter {
+    padding: 70px 15px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 370px);
+  }
+  .painter__imgWrap {
+    height: 370px;
+  }
+  .paintnerData {
+    height: 160px;
+    top: 40%;
+    transform: translateX(-50%) translateY(-40%);
+  }
+  .paintnerData__name {
+    height: 120px;
+    font-size: 100px;
+  }
+  .paintingData {
+    height: 190px;
+  }
+  .paintingData__img {
+    height: 70px;
+  }
+  .paintingData__menuButton {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .painter {
+    padding: 100px 15px;
+  }
+  .picturesBlock {
+    width: 35%;
+  }
+  .lifeBlock {
+    width: 40%;
+  }
+  .lifeBlock__titleWrap {
+    width: calc(100% - 280px);
+  }
+  .lifeBlock__paragraphWrap {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 1280px), screen and (max-height: 720px) {
+  .painter {
+    padding: 70px 15px;
+  }
+  .picturesBlock {
+    width: 28%;
+  }
+  .lifeBlock {
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .swiper-slide {
+    width: 300px;
+  }
+  .countryTitle {
+    width: 298.5px;
+  }
+  .painter {
+    padding: 90px 15px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 270px);
+  }
+  .painter__imgWrap {
+    height: 270px;
+  }
+  .picturesBlock {
+    width: 35%;
+  }
+  .lifeBlock {
+    width: 40%;
+  }
+  .lifeBlock__titleWrap {
+    width: calc(100% - 230px);
+  }
+  .lifeBlock__paragraphWrap {
+    width: 230px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-slide {
+    width: 400px;
+  }
+  .countryTitle {
+    width: 398.5px;
+  }
+  .painter {
+    padding: 140px 15px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 370px);
+  }
+  .painter__imgWrap {
+    height: 370px;
+  }
+  .painterBlock {
+    width: 40%;
+  }
+  .picturesBlock {
+    width: 60%;
+    border: 0;
+  }
+  .lifeBlock {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .imagePreloader__titleWrap {
+    top: 40%;
+    transform: translateY(-40%);
+  }
+  .imagePreloader__title {
+    font-size: 100px;
+  }
+  .wrap {
+    width: 22px;
+    height: 13px;
+  }
+  .item {
+    height: 3px;
+  }
+
+  .wrap.open .itemFirst {
+    animation: burgerTopPhone 0.6s ease-in-out forwards, burgerRotateTop 0.6s ease-in-out 0.4s forwards;
+  }
+  .wrap.open .itemSecond {
+    animation: burgerBottomPhone 0.6s ease-in-out forwards, burgerRotateBottom 0.6s ease-in-out 0.4s forwards;
+  }
+  .wrap.close .itemFirst {
+    top: 5px;
+    animation: burgerTop2Phone 0.6s ease-in-out 0.4s forwards, burgerRotateTop2 0.6s ease-in-out forwards;
+  }
+  .wrap.close .itemSecond {
+    bottom: 5px;
+    animation: burgerBottom2Phone 0.6s ease-in-out 0.4s forwards, burgerRotateBottom2 0.6s ease-in-out forwards;
+  }
+  .menuTopSidebar, .topSidebar {
+    height: 50px;
+  }
+
+  .topSidebar {
+    margin: 0 3%;
+    width: 94%;
+  }
+  .topSidebar__eventsWrap {
+    display: none;
+  }
+  .topSidebar__ticketsWrap {
+    padding-top: 50px;
+    float: right;
+  }
+  .topSidebar__name {
+    font-size: 14px;
+  }
+  .topSidebar__tickets {
+    font-size: 14px;
+  }
+
+  .menuWrap {
+    margin-top: 50px;
+    height: calc(100% - 50px);
+  }
+  .filterSidebar {
+    display: none;
+  }
+  .containerSlider {
+    width: 100%;
+  }
+  .painter {
+    padding: 70px 15px;
+  }
+  .swiper-slide {
+    width: 350px;
+  }
+  .countryTitle {
+    width: 348.5px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 320px);
+  }
+  .painter__imgWrap {
+    height: 320px;
+  }
+
+  .paintnerData {
+    height: 130px;
+    top: 40%;
+    transform: translateX(-50%) translateY(-40%);
+    /*background-color: pink;*/
+  }
+  .paintnerData__name {
+    height: 90px;
+    font-size: 70px;
+  }
+  .paintingData {
+    height: 160px;
+    /*background-color: red;*/
+  }
+  .paintingData__img {
+    height: 60px;
+  }
+  .paintingData__menuButton {
+    width: 60px;
+    height: 60px;
+  }
+  .paintingData__paint {
+    height: 100px;
+  }
+  .paintInfo, .exploreButton, .painterInfo {
+    font-size: 14px;
+  }
+  .paintInfo, .painterInfo {
+    padding: 20px 10px 0;
+  }
+  .exploreButton {
+    padding: 15px 0;
+  }
+
+  .menuLeft__infoWrap {
+    height: calc(100% - 20px);
+    margin:  20px auto 0;
+  }
+  .painterBlock, .picturesBlock {
+    width: 100%;
+    height: 50%;
+    border: 0;
+    padding: 0 10px;
+  }
+  .nav-leftClose {
+    width: 70px;
+    height: 35px;
+    font-size: 12px;
+  }
+  .painterQuick {
+    top: 80%;
+    transform: translateY(-80%);
+    text-align: center;
+  }
+  .painterQuick__img {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%) translateY(-100%);
+    margin: -10px 0 0;
+  }
+  ._firstName {
+    display: none;
+  }
+  .painterQuick__name {
+    font-size: 20px;
+    text-align: center;
+  }
+  /*.picturesBlock {
+    width: 100%;
+    height: 50%;
+  }*/
+  .painterBlock__info {
+    border-bottom: 1px solid #5d5b53;
+  }
+  .painterBlock__data {
+    font-size: 12px;
+  }
+  .painterBlock__category {
+    float: left;
+    width: 50%;
+    margin: 20px 0 0;
+  }
+  .picture {
+    padding: 0;
+  }
+  .picture__info {
+    height: 100%;
+  }
+  .picture__textWrap {
+    height: 25%;
+  }
+  .picture__text, .picture__img {
+    width: 70%;
+    margin-left: 15%;
+  }
+  .picture__imgWrap {
+    height: 75%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .swiper-slide {
+    width: 300px;
+  }
+  .countryTitle {
+    width: 298.5px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 270px);
+  }
+  .painter__imgWrap {
+    height: 270px;
+  }
+
+  .painterBlock__category {
+    margin: 15px 0 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .imagePreloader__titleWrap {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .imagePreloader__title {
+    font-size: 70px;
+  }
+  .swiper-slide {
+    width: 270px;
+  }
+  .countryTitle {
+    width: 268.5px;
+  }
+  .painter__textWrap{
+    height: calc(100% - 240px);
+  }
+  .paintnerData {
+    height: 110px;
+  }
+  .paintnerData__name {
+    height: 70px;
+    font-size: 60px;
+  }
+  .painter__imgWrap {
+    height: 240px;
+  }
+
+  .painterBlock {
+    height: 30%;
+  }
+  .painterBlock__represent {
+    height: 100%;
+  }
+  .painterBlock__info {
+    display: none;
+  }
+  .painterBlock__category {
+    margin: 15px 0 0;
+  }
+
+  .picturesBlock {
+    height: 70%;
+  }
+  .picture__text, .picture__img {
+    width: 100%;
+    margin: 0;
+  }
+}
